@@ -1,8 +1,10 @@
+import sys
 import pygame # type: ignore
 from constants import *
 from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
+from circleshape import CircleShape
 
 
 def main():
@@ -33,6 +35,11 @@ def main():
                 return
 
         updatable.update(dt)
+
+        for obj in asteroids:
+            if CircleShape.check_collision(obj, player):
+                print("Game over!")
+                sys.exit()
 
         screen.fill("black")
 
