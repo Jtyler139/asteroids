@@ -49,7 +49,7 @@ def main():
             for shot in shots:
                 if CircleShape.check_collision(shot, asteroid):
                     shot.kill()
-                    asteroid.kill()
+                    asteroid.split()
 
         
 
