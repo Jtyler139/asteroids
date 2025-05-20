@@ -12,6 +12,13 @@ def main():
     pygame.init()
 
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    pygame.display.set_caption("Tyler's Asteroids Game")
+
+    font = pygame.font.Font('freesansbold.ttf', 32)
+    text = font.render("Score:", True, "white", "black")
+    textRect = text.get_rect()
+    textRect.center = (SCREEN_WIDTH//16, SCREEN_HEIGHT//16)
+
     clock = pygame.time.Clock()
 
     updatable = pygame.sprite.Group()
@@ -54,6 +61,7 @@ def main():
         
 
         screen.fill("black")
+        screen.blit(text, textRect)
 
         for thing in drawable:
             thing.draw(screen)
